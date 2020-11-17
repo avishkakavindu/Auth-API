@@ -1,0 +1,7 @@
+__pycache__
+*.sqlite3
+*.swp
+.idea
+static/admin
+API_Auth_Project/myconfig.py
+/API_Auth_Project/.env
