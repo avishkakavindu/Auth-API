@@ -1,8 +1,16 @@
 from rest_framework import serializers
-from api.models import *
+from api2.models import *
 
 
-class StudentSerializer(serializers.ModelSerializer):
+class BookSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Student
-        fields = ['id', 'name', 'score']
+        model = Book
+        fields = '__all__'
+
+
+class AuthorSerializer(serializers.ModelSerializer):
+    books = BookSerializer(many=True, source='book_set')
+
+    class Meta:
+        model = Author
+        fields = '__all__'

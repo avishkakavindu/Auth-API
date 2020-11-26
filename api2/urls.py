@@ -3,16 +3,10 @@ from api2 import views
 from rest_framework.routers import DefaultRouter
 
 
-router = DefaultRouter()
-router.register('students', views.StudentViewSet )
-
 urlpatterns = [
-    path('', include(router.urls), name='students'),
+    path('author/', views.AuthorListView.as_view(), name='authorlist'),
+    path('author/<int:pk>', views.AuthorDetailView.as_view(), name='authordetail'),
+    path('book/', views.BookListView.as_view(), name='booklist'),
+    path('book/<int:pk>', views.BookDetailView.as_view(), name='bookdetail'),
 ]
 
-"""
-urlpatterns = [
-    path('students', views.StudentList.as_view(), name='studentlist'),
-    path('students/<int:pk>', views.StudentDetail.as_view(), name='studentdetail'),
-]
-"""
